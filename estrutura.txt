@@ -1,0 +1,16 @@
+finconnect/
+├── backend/               # Backend Node.js e Express
+│   ├── controllers/       # Lógica de controle da API
+│   ├── models/            # Modelos do MongoDB
+│   ├── routes/            # Rotas de API
+│   ├── middlewares/       # Middlewares de autenticação e validação
+│   ├── config.js          # Configurações gerais
+│   └── server.js          # Servidor Express principal
+├── frontend/              # Frontend Next.js com Tailwind CSS
+│   ├── components/        # Componentes reutilizáveis
+│   ├── pages/             # Páginas do Next.js
+│   ├── styles/            # Configurações de Tailwind CSS
+│   └── _app.js            # Arquivo inicial do Next.js
+├── .env                   # Variáveis de ambiente para o backend
+├── .env.local             # Variáveis de ambiente para o frontend
+└── README.md              # Documentação principal
