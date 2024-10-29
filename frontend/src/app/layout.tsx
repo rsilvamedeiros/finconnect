@@ -1,10 +1,14 @@
 // app/layout.tsx
-import 'antd/dist/reset.css'; // Importa os estilos do Ant Design
-import './globals.css'; // Importa seus estilos globais
-import { Inter } from 'next/font/google';
 import React from 'react';
+import { Inter } from 'next/font/google';
+import dynamic from 'next/dynamic';
 
 const inter = Inter({ subsets: ['latin'] });
+
+// Carrega o AntdStyleProvider apenas no cliente
+const AntdStyleProvider = dynamic(() => import('./components/AntdStyleProvider'), {
+  ssr: false,
+});
 
 export const metadata = {
   title: 'FinApp',
@@ -14,7 +18,9 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <AntdStyleProvider>{children}</AntdStyleProvider>
+      </body>
     </html>
   );
 }
