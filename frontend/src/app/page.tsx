@@ -1,14 +1,9 @@
-import LayoutComponent from './layout'; // Importando o componente de layout
-
-const Dashboard: React.FC = () => {
+// app/page.tsx
+export default function Dashboard() {
   return (
-    <LayoutComponent>
-      <div className="bg-white p-6 shadow rounded">
-        <h1 className="text-2xl font-bold mb-4">Dashboard</h1>
-        <p>Bem-vindo ao painel de controle financeiro.</p>
-      </div>
-    </LayoutComponent>
+    <div className="bg-white p-6 shadow rounded">
+      <h1 className="text-2xl font-bold mb-4">Dashboard</h1>
+      <p>Bem-vindo ao painel de controle financeiro.</p>
+    </div>
   );
-};
-
-export default Dashboard;
+}

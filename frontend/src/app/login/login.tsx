@@ -1,39 +1,30 @@
+// app/login/page.tsx
 import { Form, Input, Button } from 'antd';
-import { useRouter } from 'next/router';
-import React from 'react';
+import { useRouter } from 'next/navigation'; // Atualizado para 'next/navigation' no App Router
 
-// Definindo a interface para os valores do formulário de registro
-interface RegisterFormValues {
+interface LoginFormValues {
   username: string;
-  email: string;
   password: string;
 }
 
-const Register: React.FC = () => {
+export default function Login() {
   const router = useRouter();
 
-  const onFinish = (values: RegisterFormValues) => {
+  const onFinish = (values: LoginFormValues) => {
     console.log('Success:', values);
-    router.push('/login'); // Redireciona para a página de login após o cadastro
+    router.push('/'); // Redireciona para o Dashboard após login
   };
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
       <div className="bg-white p-6 shadow-md rounded-md w-full max-w-sm">
-        <h1 className="text-2xl font-bold mb-4 text-center">Cadastrar-se</h1>
-        <Form name="register" onFinish={onFinish}>
+        <h1 className="text-2xl font-bold mb-4 text-center">Login</h1>
+        <Form name="login" initialValues={{ remember: true }} onFinish={onFinish}>
           <Form.Item
             name="username"
             rules={[{ required: true, message: 'Por favor, insira seu nome de usuário!' }]}
           >
             <Input placeholder="Nome de usuário" />
-          </Form.Item>
-
-          <Form.Item
-            name="email"
-            rules={[{ required: true, message: 'Por favor, insira seu e-mail!' }]}
-          >
-            <Input placeholder="E-mail" />
           </Form.Item>
 
           <Form.Item
@@ -45,13 +36,11 @@ const Register: React.FC = () => {
 
           <Form.Item>
             <Button type="primary" htmlType="submit" className="w-full">
-              Cadastrar
+              Entrar
             </Button>
           </Form.Item>
         </Form>
       </div>
     </div>
   );
-};
-
-export default Register;
+}
